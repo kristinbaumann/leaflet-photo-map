@@ -13,8 +13,6 @@ body{
     height: 60px !important;
 }
 
-
-
 .leaflet-popup-content{
     padding: 0;
     margin: 0;
@@ -35,14 +33,30 @@ body{
     padding: 2px;
 }
 
+.popup-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .popup-caption{
-    padding-left: 10px;
+    padding: 0 10px;
     font-weight: bold;
+    margin-bottom: 5px !important;
 }
 
 .popup-description{
-    padding-left: 10px;
+    padding: 0 10px;
+    margin-top: 0px !important;
 }
+
+.popup-date{
+    flex-basis: 50px;
+    padding: 0 10px;
+    margin-bottom: 5px !important;
+}
+
 
 a.leaflet-popup-close-button{
     font-size: 25px !important;
@@ -54,15 +68,49 @@ a.leaflet-popup-close-button:hover{
     color: white !important;
 }
 
+@font-face {
+  font-family: 'Scriptina';
+  src: url('fonts/SCRIPTIN.ttf');
+}
+
 #text-box{
     position: absolute;
-    display: none;
-    width: 200px;
-    height: 50px;
-    background-color: gray;
-    background-opacity: 0.5;
-    color: white;
+    background-color: rgba(0, 0, 0, 0.8);
     top: 0;
     margin-left: 20px;
-    margin-top: 20px
+    margin-top: 20px;
+    text-align: center;
+    color: white;
+    border-radius: 10px;
+    border: 1px solid white;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-left: 5px;
+}
+
+.text-box-title{
+    font-size: 28px;
+    font-family: 'Scriptina', 'Georgina', 'serif';
+    margin: 0;
+}
+
+.text-box-descr{
+    font-family: 'Times New Roman', 'serif';
+    font-size: 20px;
+    font-style: italic;
+    margin-top: 10px;
+}
+
+@media  (max-width: 400px) {
+    #text-box{
+        display: none;
+    }
+
+    .leaflet-popup{
+        width: 250px !important;
+    }
+
+    .popup-container{
+        width: 246px;
+    }
 }

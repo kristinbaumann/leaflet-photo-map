@@ -42,9 +42,14 @@ function initLayer(){
     photoLayer = L.photo.cluster({ spiderfyDistanceMultiplier: 1.2 }).on('click', function (evt) {
 
         var template = '<div class="popup-container"><img src="{url}"/>';
-
+        template += '<div class="popup-row">';
         if(evt.layer.photo.caption != null)
             template +='<p class="popup-caption">{caption}</p>';
+
+        if(evt.layer.photo.date != null)
+            template +='<p class="popup-date">{date}</p>';
+
+        template += '</div>';
 
         if(evt.layer.photo.description != null)
             template +='<p class="popup-description">{description}</p>';
@@ -75,7 +80,8 @@ function addImages(){
                 lat: attributes.lat,
                 lng: attributes.lng,
                 thumbnail: 'http://res.cloudinary.com/'+cloudinary_cloudName+'/image/upload/w_80,h_60,c_thumb,q_30/' + entry.public_id,
-                url: 'http://res.cloudinary.com/'+cloudinary_cloudName+'/image/upload/q_70/' + entry.public_id
+                url: 'http://res.cloudinary.com/'+cloudinary_cloudName+'/image/upload/q_70/' + entry.public_id,
+                date: attributes.date
             }
             images.push(image);
 
